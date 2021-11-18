@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>AmoCRM contacts</title>
+</head>
+<body>
+<h1>Актуальные контакты</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Имя Фамилия</th>
+        <th>Почта</th>
+        <th>Телефон</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for result in display_contacts %}
+        <tr>
+            <td>{{ result.name }}</td>
+            <td>{{ result.email }}</td>
+            <td>{{ result.phone }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h1></h1>
+<h1>-----------------------------------</h1>
+<h3><a href="/contacts/upd/" target="_self" rel="nofollow">Обновить список контактов.</a></h3>
+<h2>Создать сделку с:</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit"/>
+</form>
+<h3>Вернуться на <a href="/" target="_self" rel="nofollow">главную</a>.</h3>
+</body>
+</html>
